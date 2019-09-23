@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Progress</class>
+ <widget class="QWidget" name="Progress">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>527</width>
+    <height>257</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <kerning>true</kerning>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+background-image: url(:/Images/Marble.jpg);
+border-radius: 6px;
+border-width: 3px;
+}
+
+
+QProgressBar {
+color: lightgray;
+border-width: 3px;
+border-color: #778EB8;
+border-style: solid;
+border-radius: 7px;
+padding: 3px;
+font: bold &quot;Ubuntu&quot;;
+font-size: 14px;
+padding-left: 3px;
+padding-right: 3px;
+text-align: centered;
+}
+
+QProgressBar::chunk {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,  stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
+border-radius: 3px;
+}
+
+QLabel {
+	color:	lightgray;
+	font: bold &quot;Ubuntu&quot;;
+	font-size: 12px;
+}
+</string>
+  </property>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>491</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="invertedAppearance">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelHeader">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>20</y>
+     <width>441</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Ubuntu</family>
+     <pointsize>26</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 26pt &quot;Ubuntu&quot;;</string>
+   </property>
+   <property name="text">
+    <string>File Operation</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStatus">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>491</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Status</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>32</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="SkinRessource.qrc">:/Images/file32x32.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>491</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStage1">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>491</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Stage 1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStage2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>150</y>
+     <width>491</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Stage 2</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="SkinRessource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

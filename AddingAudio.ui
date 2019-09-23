@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddingAudio</class>
+ <widget class="QDialog" name="AddingAudio">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1140</width>
+    <height>570</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Load Image</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel {
+font: bold &quot;Ubuntu&quot;;
+font-size: 12px;
+color: lightgray;
+}
+
+QComboBox {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
+color: white;
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+border-radius: 7px;
+padding: 3px;
+font: bold &quot;Ubuntu&quot;;
+font-size: 12px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+	image: url(:/Images/down.png);
+    border-left-color: darkgray;
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+border-radius: 7px;
+padding: 3px;
+font: bold &quot;Ubuntu&quot;;
+font-size: 12px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QTableWidget { 
+background-color: lightgray;
+selection-background-color: #778EB8;
+selection-color: white;
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+border-radius: 7px;
+font: bold &quot;Ubuntu&quot;;
+font-size: 12px;
+}
+
+QHeaderView::section {
+background-color: #646464;
+color: lightgray;
+font: bold &quot;Ubuntu&quot;;
+font-size: 13px;
+border-width: 1px;
+border-color: lightgray;
+border-style: solid;
+}
+
+</string>
+  </property>
+  <widget class="QComboBox" name="ComboBoxDirectory">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>511</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="editable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="TableFilesFound">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>112</y>
+     <width>621</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="lineWidth">
+    <number>-1</number>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::SingleSelection</enum>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="columnCount">
+    <number>4</number>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>120</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>40</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Filename</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Sampling Rate</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Duration</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Size</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="ButtonBrowse">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>70</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Browse...</string>
+   </property>
+   <property name="icon">
+    <iconset resource="SkinRessource.qrc">
+     <normaloff>:/Images/browse20.png</normaloff>:/Images/browse20.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStaticSelect">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>471</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Ubuntu</family>
+     <pointsize>22</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 22pt &quot;Ubuntu&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Select an Audio from File</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelFilesFound">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>530</y>
+     <width>301</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>0 File found</string>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBoxAudioMode">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>465</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <item>
+    <property name="text">
+     <string>Mono</string>
+    </property>
+    <property name="icon">
+     <iconset resource="SkinRessource.qrc">
+      <normaloff>:/Images/mono.png</normaloff>:/Images/mono.png</iconset>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Stereo</string>
+    </property>
+    <property name="icon">
+     <iconset resource="SkinRessource.qrc">
+      <normaloff>:/Images/Stereo.png</normaloff>:/Images/Stereo.png</iconset>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="LabelStaticAudioMode">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>465</y>
+     <width>106</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Audio Mode:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStaticConvertSamplingRate">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>510</y>
+     <width>106</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Sampling Rate:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBoxSamplingRate">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>510</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <item>
+    <property name="text">
+     <string>160 Kb</string>
+    </property>
+    <property name="icon">
+     <iconset resource="SkinRessource.qrc">
+      <normaloff>:/Images/none20.png</normaloff>:/Images/none20.png</iconset>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>320 Kb</string>
+    </property>
+    <property name="icon">
+     <iconset resource="SkinRessource.qrc">
+      <normaloff>:/Images/ScaleFit20.png</normaloff>:/Images/ScaleFit20.png</iconset>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Scale to width</string>
+    </property>
+    <property name="icon">
+     <iconset resource="SkinRessource.qrc">
+      <normaloff>:/Images/ScaleWidth20.png</normaloff>:/Images/ScaleWidth20.png</iconset>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Scale to height</string>
+    </property>
+    <property name="icon">
+     <iconset resource="SkinRessource.qrc">
+      <normaloff>:/Images/ScaleHeight20.png</normaloff>:/Images/ScaleHeight20.png</iconset>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="LabelSamplingRate">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>150</y>
+     <width>321</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>320 Kb/Sec</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStaticSize">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>230</y>
+     <width>111</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Size:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStaticFilename">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>70</y>
+     <width>111</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Filename:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelFilename">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>70</y>
+     <width>321</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Empty</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStaticSamplingRate">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>150</y>
+     <width>111</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Sampling Rate:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelSize">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>230</y>
+     <width>131</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>0 Bytes</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStaticDuration">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>190</y>
+     <width>111</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Duration:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelDuration">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>190</y>
+     <width>121</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>10:00:00 </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelStaticDataSize">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>110</y>
+     <width>111</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>Raw data size:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LabelDataSize">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>110</y>
+     <width>321</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>0 kB</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_V_Load">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>76</y>
+     <width>20</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_H_Load">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>260</y>
+     <width>451</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonAdd">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>524</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+   <property name="icon">
+    <iconset resource="SkinRessource.qrc">
+     <normaloff>:/Images/plus20.png</normaloff>:/Images/plus20.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonClose">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>524</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="icon">
+    <iconset resource="SkinRessource.qrc">
+     <normaloff>:/Images/exit20.png</normaloff>:/Images/exit20.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="SkinRessource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

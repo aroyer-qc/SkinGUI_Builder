@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/gif">
+        <file>graphic/loader.gif</file>
+    </qresource>
+    <qresource prefix="/Images">
+        <file>Ressource/down.png</file>
+        <file>Ressource/check-marks_check.png</file>
+        <file>Ressource/check-marks_uncheck.png</file>
+        <file>graphic/argb20.png</file>
+        <file>graphic/bezel.png</file>
+        <file>graphic/browse20.png</file>
+        <file>graphic/checker.png</file>
+        <file>graphic/checker1.png</file>
+        <file>graphic/convert20.png</file>
+        <file>graphic/down.png</file>
+        <file>graphic/Down_Arrow20.png</file>
+        <file>graphic/exit20.png</file>
+        <file>graphic/file.png</file>
+        <file>graphic/file32x32.png</file>
+        <file>graphic/grill2.jpg</file>
+        <file>graphic/InterfaceBuilder.png</file>
+        <file>graphic/Marble.jpg</file>
+        <file>graphic/mono.png</file>
+        <file>graphic/none20.png</file>
+        <file>graphic/play.png</file>
+        <file>graphic/plus20.png</file>
+        <file>graphic/question_mark64.png</file>
+        <file>graphic/remove20.png</file>
+        <file>graphic/resume.png</file>
+        <file>graphic/rgb20.png</file>
+        <file>graphic/ScaleFit20.png</file>
+        <file>graphic/ScaleHeight20.png</file>
+        <file>graphic/ScaleWidth20.png</file>
+        <file>graphic/Stereo.png</file>
+        <file>graphic/stop.png</file>
+        <file>graphic/Up_Arrow20.png</file>
+        <file>graphic/Warning64.png</file>
+    </qresource>
+</RCC>

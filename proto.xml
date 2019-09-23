@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skin>
+  <Endian>
+    <State>Big</State>
+  </Endian>
+  <Image>
+    <File>480x272.png</File>
+    <File>BlueRectangle.png</File>
+    <File>BlueRectanglePress.png</File>
+    <File>BlueSquare.png</File>
+    <File>BlueSquareMini.png</File>
+    <File>BlueSquarePress.png</File>
+    <File>BlueSquarePressMini.png</File>
+    <File>Cancel button press.png</File>
+    <File>Cancel button.png</File>
+    <File>limit.png</File>
+    <File>Measure.png</File>
+    <File>MenuNormal.png</File>
+    <File>MenuPress.png</File>
+    <File>module.png</File>
+    <File>Ok button press.png</File>
+    <File>Ok button.png</File>
+    <File>Range.png</File>
+    <File>RedRectangle.png</File>
+    <File>RedRectanglePress.png</File>
+    <File>RedSquareMini.png</File>
+    <File>RedSquareMiniPress.png</File>
+    <File>reference.png</File>
+    <File>SettingNormal.png</File>
+    <File>SettingPress.png</File>
+    <File>ToggleNormal.png</File>
+    <File>TogglePress.png</File>
+    <File>Warning.png</File>
+  </Image>
+  <Font>
+    <Family fontdescription="Arial Black,48,-1,5,87,0,0,0,0,0"/>
+    <Option>39</Option>
+    <Family fontdescription="DS-Digital,96,-1,5,75,0,0,0,0,0"/>
+    <Option>38</Option>
+    <Family fontdescription="DS-Digital,48,-1,5,75,0,0,0,0,0"/>
+    <Option>38</Option>
+    <Family fontdescription="DS-Digital,36,-1,5,75,0,0,0,0,0"/>
+    <Option>38</Option>
+  </Font>
+</Skin>
