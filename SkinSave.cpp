@@ -1,3 +1,23 @@
+/*
+   Copyright(c) 2020 Alain Royer.
+   Email: aroyer.qc@gmail.com
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+   and associated documentation files (the "Software"), to deal in the Software without
+   restriction, including without limitation the rights to use, copy, modify, merge, publish,
+   distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or
+   substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+   AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include "ui_mainwindow.h"
 #include "SkinSave.h"
 #include "compression.h"
@@ -291,6 +311,8 @@ bool SkinSave::SaveFontInfo(QVector<uint8_t>* pCompxData)
             // Sample all numeric character
             if((m_pFontSamplingInfo->at(Count) & SAMPLING_NUMERIC) != 0)
             {
+                int MaxX;
+
                 for(uint32_t CharCount = '0'; CharCount <= '9'; CharCount++) ExtractFontInfo(pCompxData, char(CharCount));
             }
 
@@ -337,11 +359,13 @@ void SkinSave::CompressAllFont(QVector<uint8_t>* pCompxData)
     for(int Count = 0; Count < m_FontCount; Count++)
     {
         uint32_t StartOffsetFont = m_TotalCharCount;
+        uint32_t StartNumericalOffsetFont;
         uint8_t MinY = 0xFF;
         uint8_t MaxY = 0x00;
 
         m_pFont       = &m_pFontInfo->at(Count);
         m_pFontMetric = new QFontMetrics(*m_pFont);
+        m_MaxX_FixedFont = 0;
 
         // Sample all alpha character
         if((m_pFontSamplingInfo->at(Count) & SAMPLING_ALPHA) != 0)
@@ -353,7 +377,12 @@ void SkinSave::CompressAllFont(QVector<uint8_t>* pCompxData)
         // Sample all numeric character
         if((m_pFontSamplingInfo->at(Count) & SAMPLING_NUMERIC) != 0)
         {
-            for(uint32_t CharCount = '0'; CharCount <= '9'; CharCount++) CompressFont(pCompxData, char(CharCount));
+            StartNumericalOffsetFont = m_TotalCharCount;
+
+            for(uint32_t CharCount = '0'; CharCount <= '9'; CharCount++)
+            {
+                CompressFont(pCompxData, char(CharCount));
+            }
         }
 
         // Sample all symbol character
@@ -392,6 +421,16 @@ void SkinSave::CompressAllFont(QVector<uint8_t>* pCompxData)
 
         // Write the new height for the font
         pCompxData->replace(m_OffsetFontHeight[Count], (MaxY - MinY) + 1);
+
+
+        // Rescan numerical value for max width
+        //if((m_pFontSamplingInfo->at(Count) & SAMPLING_FIXED_NUMERIC) != 0)
+        {
+            for(uint32_t CharCount = StartNumericalOffsetFont; CharCount < (StartNumericalOffsetFont) + 10; CharCount++)
+            {
+                pCompxData->replace( m_OffsetFontHeader[CharCount] + 7, m_MaxX_FixedFont);
+            }
+        }
 
         // We subtract this absolute minimum from height, and all other minimum and maximum
         for(uint32_t CharCount = StartOffsetFont; CharCount < m_TotalCharCount; CharCount++)
@@ -444,6 +483,14 @@ void SkinSave::CompressFont(QVector<uint8_t>* pCompxData, char Char)
     m_Width.append(m_pFontMetric->width(Char));
     m_LeftBearing.append(m_pFontMetric->leftBearing(Char));
     m_RightBearing.append(m_pFontMetric->leftBearing(Char));
+
+    if(Char >= '0' && Char <='9')
+    {
+        if(m_pFontMetric->width(Char) > m_MaxX_FixedFont)
+        {
+            m_MaxX_FixedFont = m_pFontMetric->width(Char);
+        }
+    }
 
     // Prepare Pix map for character drawing white in black
     pPainter->setPen(Qt::white);
@@ -502,7 +549,6 @@ void SkinSave::CompressFont(QVector<uint8_t>* pCompxData, char Char)
             lb--;
             lb++;
         }
-
 
         pCompxData->replace(OffsetFontHeader + 3, uint8_t(lb));
         int8_t rb = m_pFontMetric->rightBearing(Char);
