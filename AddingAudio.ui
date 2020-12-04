@@ -26,8 +26,8 @@ font-size: 12px;
 color: lightgray;
 }
 
-QComboBox {
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
+QComboBox{
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,  stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
 color: white;
 border-width: 2px;
 border-color: #778EB8;
@@ -44,25 +44,110 @@ QComboBox::drop-down {
     subcontrol-origin: padding;
     subcontrol-position: top right;
 	image: url(:/Images/down.png);
+/*    border-left-width: 1px; */
     border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
     border-bottom-right-radius: 3px;
 }
 
+
 QPushButton {
 color: white;
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,  stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
 border-width: 2px;
 border-color: #778EB8;
 border-style: solid;
-border-radius: 7px;
+border-radius: 7;
 padding: 3px;
 font: bold &quot;Ubuntu&quot;;
 font-size: 12px;
 padding-left: 5px;
 padding-right: 5px;
 }
+
+QScrollBar:horizontal {
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+border-radius: 4px;
+background: lightgray;
+height: 15px;
+margin: 0px 20px 0 20px;
+}
+
+QScrollBar::handle:horizontal {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,  stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);;
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+border-radius: 4px;
+}
+
+QScrollBar::add-line:horizontal {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+ QScrollBar::left-arrow:horizontal, QScrollBar::right-arrow:horizontal {
+     border-color: solid grey;
+     border-width: 2px;
+     border-height: 2px;
+     background: white;
+ }
+
+ QScrollBar:vertical {
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+background: lightgray;
+width: 15px;
+margin: 22px 0 22px 0;
+ }
+
+QScrollBar::handle:vertical {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,  stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);;
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+border-radius: 4px;
+}
+
+ QScrollBar::add-line:vertical {
+     border: 2px solid grey;
+     background: #68F;
+     height: 20px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+
+ QScrollBar::sub-line:vertical {
+     border: 2px solid grey;
+     background: #32CC99;
+     height: 20px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     border-color: solid grey;
+     border-width: 2px;
+     border-height: 2px;
+     background: white;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: none;
+ }
 
 QTableWidget { 
 background-color: lightgray;
@@ -76,17 +161,25 @@ font: bold &quot;Ubuntu&quot;;
 font-size: 12px;
 }
 
-QHeaderView::section {
+QHeaderView::section {			/* this is for the header in the QTableWidget*/
 background-color: #646464;
 color: lightgray;
+/*padding: 2px;*/
 font: bold &quot;Ubuntu&quot;;
 font-size: 13px;
 border-width: 1px;
 border-color: lightgray;
 border-style: solid;
+/*border-radius: 1px;*/
 }
 
-</string>
+
+QSlider::handle:horizontal {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,  stop: 0 #6B82AC, stop: 0.49 #566D97, stop: 0.5 #445B85, stop: 1 #566D97);
+border-width: 2px;
+border-color: #778EB8;
+border-style: solid;
+}</string>
   </property>
   <widget class="QComboBox" name="ComboBoxDirectory">
    <property name="geometry">
@@ -102,6 +195,9 @@ border-style: solid;
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <property name="editable">
     <bool>true</bool>

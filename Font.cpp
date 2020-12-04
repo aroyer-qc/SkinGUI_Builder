@@ -130,6 +130,7 @@ void MainWindow::on_ButtonUpFont_clicked()
     ui->TableFont->blockSignals(false);
 
     UpdateFontGUI(row - 1);
+    setSkinHasUnsavedData(true);
 }
 
 // ************************************************************************************************
@@ -167,6 +168,7 @@ void MainWindow::on_ButtonDownFont_clicked()
     ui->TableFont->blockSignals(false);
 
     UpdateFontGUI(row + 1);
+    setSkinHasUnsavedData(true);
 }
 
 // ************************************************************************************************
@@ -240,6 +242,7 @@ void MainWindow::on_checkBoxAlphaFont_clicked(bool checked)
     if(checked == true) m_SamplingFont[row] |=  SAMPLING_ALPHA;
     else                m_SamplingFont[row] &= ~SAMPLING_ALPHA;
     LoadFont(row);
+    setSkinHasUnsavedData(true);
 }
 
 void MainWindow::on_checkBoxNumericFont_clicked(bool checked)
@@ -258,6 +261,7 @@ void MainWindow::on_checkBoxNumericFont_clicked(bool checked)
         ui->checkBoxFixed->setEnabled(false);
     }
     LoadFont(row);
+    setSkinHasUnsavedData(true);
 }
 
 void MainWindow::on_checkBoxSymbolFont_clicked(bool checked)
@@ -267,6 +271,7 @@ void MainWindow::on_checkBoxSymbolFont_clicked(bool checked)
     if(checked == true) m_SamplingFont[row] |=  SAMPLING_SYMBOL;
     else                m_SamplingFont[row] &= ~SAMPLING_SYMBOL;
     LoadFont(row);
+    setSkinHasUnsavedData(true);
 }
 
 void MainWindow::on_checkBoxExtraSymbolFont_clicked(bool checked)
@@ -276,6 +281,7 @@ void MainWindow::on_checkBoxExtraSymbolFont_clicked(bool checked)
     if(checked == true) m_SamplingFont[row] |=  SAMPLING_EXTRA_SYMBOL;
     else                m_SamplingFont[row] &= ~SAMPLING_EXTRA_SYMBOL;
     LoadFont(row);
+    setSkinHasUnsavedData(true);
 }
 
 void MainWindow::on_checkBoxLatinFont_clicked(bool checked)
@@ -285,6 +291,7 @@ void MainWindow::on_checkBoxLatinFont_clicked(bool checked)
     if(checked == true) m_SamplingFont[row] |=  SAMPLING_LATIN;
     else                m_SamplingFont[row] &= ~SAMPLING_LATIN;
     LoadFont(row);
+    setSkinHasUnsavedData(true);
 }
 
 // ************************************************************************************************

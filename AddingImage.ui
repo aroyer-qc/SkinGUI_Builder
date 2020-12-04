@@ -276,11 +276,11 @@ border-style: solid;
    <attribute name="horizontalHeaderCascadingSectionResizes">
     <bool>true</bool>
    </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>440</number>
-   </attribute>
    <attribute name="horizontalHeaderMinimumSectionSize">
     <number>40</number>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>440</number>
    </attribute>
    <attribute name="horizontalHeaderStretchLastSection">
     <bool>true</bool>
@@ -321,7 +321,7 @@ border-style: solid;
     <string>Browse...</string>
    </property>
    <property name="icon">
-    <iconset resource="SkinRessource.qrc">
+    <iconset>
      <normaloff>:/Images/browse20.png</normaloff>:/Images/browse20.png</iconset>
    </property>
    <property name="iconSize">
@@ -404,7 +404,7 @@ border-style: solid;
      <string>RGB565</string>
     </property>
     <property name="icon">
-     <iconset resource="SkinRessource.qrc">
+     <iconset>
       <normaloff>:/Images/rgb20.png</normaloff>:/Images/rgb20.png</iconset>
     </property>
    </item>
@@ -413,7 +413,7 @@ border-style: solid;
      <string>ARGB8888</string>
     </property>
     <property name="icon">
-     <iconset resource="SkinRessource.qrc">
+     <iconset>
       <normaloff>:/Images/argb20.png</normaloff>:/Images/argb20.png</iconset>
     </property>
    </item>
@@ -482,7 +482,7 @@ border-style: solid;
      <string>None</string>
     </property>
     <property name="icon">
-     <iconset resource="SkinRessource.qrc">
+     <iconset>
       <normaloff>:/Images/none20.png</normaloff>:/Images/none20.png</iconset>
     </property>
    </item>
@@ -491,7 +491,7 @@ border-style: solid;
      <string>Scale to fit</string>
     </property>
     <property name="icon">
-     <iconset resource="SkinRessource.qrc">
+     <iconset>
       <normaloff>:/Images/ScaleFit20.png</normaloff>:/Images/ScaleFit20.png</iconset>
     </property>
    </item>
@@ -500,7 +500,7 @@ border-style: solid;
      <string>Scale to width</string>
     </property>
     <property name="icon">
-     <iconset resource="SkinRessource.qrc">
+     <iconset>
       <normaloff>:/Images/ScaleWidth20.png</normaloff>:/Images/ScaleWidth20.png</iconset>
     </property>
    </item>
@@ -509,7 +509,7 @@ border-style: solid;
      <string>Scale to height</string>
     </property>
     <property name="icon">
-     <iconset resource="SkinRessource.qrc">
+     <iconset>
       <normaloff>:/Images/ScaleHeight20.png</normaloff>:/Images/ScaleHeight20.png</iconset>
     </property>
    </item>
@@ -802,7 +802,7 @@ border-style: solid;
     <string>Add</string>
    </property>
    <property name="icon">
-    <iconset resource="SkinRessource.qrc">
+    <iconset>
      <normaloff>:/Images/plus20.png</normaloff>:/Images/plus20.png</iconset>
    </property>
    <property name="iconSize">
@@ -828,7 +828,7 @@ border-style: solid;
     <string>Close</string>
    </property>
    <property name="icon">
-    <iconset resource="SkinRessource.qrc">
+    <iconset>
      <normaloff>:/Images/exit20.png</normaloff>:/Images/exit20.png</iconset>
    </property>
   </widget>
@@ -849,8 +849,6 @@ border-style: solid;
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="SkinRessource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
