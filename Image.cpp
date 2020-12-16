@@ -129,25 +129,29 @@ void MainWindow::on_ButtonUpImage_clicked()
 void MainWindow::on_ButtonDownImage_clicked()
 {
     sImageInfo ImageInfoCopy;
-    int row;
+    int Row;
+    //int RowCount;
 
     // Get the selected row
-    row = ui->TableImage->currentIndex().row();
+    Row = ui->TableImage->currentIndex().row();
 
-    // Swap info structure
-    ImageInfoCopy        = m_ImageInfo[row + 1];
-    m_ImageInfo[row + 1] = m_ImageInfo[row];
-    m_ImageInfo[row]     = ImageInfoCopy;
+    if((Row + 1) < ui->TableImage->rowCount())
+    {
+        // Swap info structure
+        ImageInfoCopy        = m_ImageInfo[Row + 1];
+        m_ImageInfo[Row + 1] = m_ImageInfo[Row];
+        m_ImageInfo[Row]     = ImageInfoCopy;
 
-    // Swap element in table
-    InsertNewRowInTableImage(row + 2,
-                        ui->TableImage->item(row, 0)->text(),
-                        ui->TableImage->item(row, 1)->text(),
-                        ui->TableImage->item(row, 2)->text(),
-                        ui->TableImage->item(row, 3)->text());
+        // Swap element in table
+        InsertNewRowInTableImage(Row + 2,
+                            ui->TableImage->item(Row, 0)->text(),
+                            ui->TableImage->item(Row, 1)->text(),
+                            ui->TableImage->item(Row, 2)->text(),
+                            ui->TableImage->item(Row, 3)->text());
 
-    ui->TableImage->removeRow(row);
-    ui->TableImage->selectRow(row + 1);
+        ui->TableImage->removeRow(Row);
+        ui->TableImage->selectRow(Row + 1);
+    }
 }
 
 // ************************************************************************************************
@@ -195,6 +199,9 @@ void MainWindow::on_TableImage_itemChanged(QTableWidgetItem *item)
     Row    = item->row();
     Column = item->column();
 
+    if((Row + 1) < ui->TableImage->rowCount())
+    {
+
     CellData = ui->TableImage->item(Row, Column)->text();
 
     if(Column == 1)
@@ -233,6 +240,7 @@ void MainWindow::on_TableImage_itemChanged(QTableWidgetItem *item)
             setSkinHasUnsavedData(true);
         }
     }
+}
 }
 
 // ************************************************************************************************

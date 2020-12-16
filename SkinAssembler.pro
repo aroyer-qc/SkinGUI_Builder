@@ -32,7 +32,6 @@ SOURCES += main.cpp\
     setEndianess.cpp \
     Font.cpp \
     Simulator.cpp \
-    audio.cpp \
     AddingImage.cpp \
     AddingAudio.cpp
 

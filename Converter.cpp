@@ -641,7 +641,9 @@ void MainWindow::AdjustTabConverter(QSize Offset, QRect ViewRect)
 
     //Resize GraphicsView
     ui->graphicsViewConverter->setGeometry(ViewRect);
+    ui->graphicsViewConverter->setStyleSheet(QString("background-color: #%1;").arg(0, 6, 16, QChar('0')));
     ui->graphicsViewImage->setSceneRect(0, 0, ViewRect.width(), ViewRect.height());
+    ui->graphicsViewImage->setStyleSheet(QString("background-color: #%1;").arg(0, 6, 16, QChar('0')));
 
     Find();
 }
