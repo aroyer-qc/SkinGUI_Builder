@@ -1,4 +1,7 @@
-# SkinGUI_Builder
+![alt text](https://github.com/aroyer-qc/SkinGUI_Builder/blob/master/Ressource/Digini.png)
+
+# SkinGUI_Builder for Digini
+
 Create skin file to use in project using touch screen for embedded system
 
 It is a work in progress to provide complete skin data and configuration for Digini GUI system for embedded project.
