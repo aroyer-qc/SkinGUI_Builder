@@ -8,14 +8,14 @@ It is a work in progress to provide complete skin data and configuration for Dig
 
 Configuration for display size include some standard size, and custom configuration support.
 Application can convert format RGB565 <->ARGB8888
-Can generate source file from image and provide information for the application for the image
+Can generate source file from image and provide information for the application for the image.
 
 So Far. this project build a file xxx.skn
   it allow to encapsulated in the skin file
-    - image PNG,JPG,GIF.
+    - image PNG, JPG, GIF.
     - Font of any size.
 
-All widget and configuration is handle in the embedded system at this time. 
+All widget and page configuration is handle in the embedded system at this time. 
 
 It also compress the data with different method to limit loading time in system via file.
 Reach very often ratio of 4:1 
