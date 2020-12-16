@@ -30,4 +30,4 @@ TODO in this application
       - Label and label list
       - Service
       
-      ![alt text](https://github.com/aroyer-qc/SkinGUI_Builder/blob/master/chart.png)
+![alt text](https://github.com/aroyer-qc/SkinGUI_Builder/blob/master/chart.png)
