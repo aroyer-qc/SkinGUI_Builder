@@ -4,9 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xml multimedia
+QT       += core gui xml # multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
 TARGET = SkinAssembler
 TEMPLATE = app
 

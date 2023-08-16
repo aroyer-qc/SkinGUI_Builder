@@ -164,9 +164,9 @@ void MainWindow::on_TableFilesFound_cellActivated(int row, int column)
         Stream << "extern const StaticImageInfo_t SII_" << BaseName << ";\r\n";
         Stream << "const StaticImageInfo_t SII_" << BaseName << " =\r\n";
         Stream << "{\r\n";
-        Temp.sprintf("%d", m_Scale.width());
+        Temp.asprintf("%d", m_Scale.width());
         Stream << "    " << Temp << ",\r\n";
-        Temp.sprintf("%d", m_Scale.height());
+        Temp.asprintf("%d", m_Scale.height());
         Stream << "    " << Temp << ",\r\n";
 
         if(Index == FORMAT_RGB565)
@@ -434,7 +434,7 @@ void MainWindow::LoadImageConverter(int row, eResizer Resizer)
     m_Scale.setWidth((m_pProcessedImage->width()   > m_DisplaySize.width())  ? m_DisplaySize.width()  : m_pProcessedImage->width());
     m_Scale.setHeight((m_pProcessedImage->height() > m_DisplaySize.height()) ? m_DisplaySize.height() : m_pProcessedImage->height());
 
-    m_TotalCount  = m_pProcessedImage->byteCount() / (m_pProcessedImage->width() * m_pProcessedImage->height());    // Adjust byte count to image size in viewport if it is the case
+    m_TotalCount  = m_pProcessedImage->sizeInBytes() / (m_pProcessedImage->width() * m_pProcessedImage->height());    // Adjust byte count to image size in viewport if it is the case
     m_TotalCount *= (m_Scale.width() * m_Scale.height());
 
     ui->LabelPixelFormat->setText(GetFormat(m_pImage->format()));
@@ -523,7 +523,7 @@ void MainWindow::Extract(QTextStream* pStream, int Index)
                 if(Counter == 16)
                 {
                     Counter = 0;
-                    *pStream << endl << "    ";
+                    *pStream << Qt::endl << "    ";
                 }
             }
         }

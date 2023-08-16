@@ -355,7 +355,7 @@ void AddingImage::LoadingImage(int row, eResizer Resizer)
     Size.setWidth ((m_pProcessedImage->width()  > m_Size.width())  ? m_Size.width()  : m_pProcessedImage->width());
     Size.setHeight((m_pProcessedImage->height() > m_Size.height()) ? m_Size.height() : m_pProcessedImage->height());
 
-    m_TotalCount  = m_pProcessedImage->byteCount() / (m_pProcessedImage->width() * m_pProcessedImage->height());    // Adjust byte count to image size in viewport if it is the case
+    m_TotalCount  = m_pProcessedImage->sizeInBytes() / (m_pProcessedImage->width() * m_pProcessedImage->height());    // Adjust byte count to image size in viewport if it is the case
     m_TotalCount *= (Size.width() * Size.height());
 
     ui->LabelPixelFormat->setText(GetFormat(m_pImage->format()));

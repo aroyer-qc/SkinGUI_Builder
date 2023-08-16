@@ -18,7 +18,7 @@
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "ui_mainwindow.h"
+//#include "ui_mainwindow.h"
 #include "SkinSave.h"
 #include "compression.h"
 #include "utility.h"
@@ -480,15 +480,15 @@ void SkinSave::CompressFont(QVector<uint8_t>* pCompxData, char Char)
     m_MaxX.append(0);
     m_MinY.append(SAMPLING_BOX_Y_SIZE);
     m_MaxY.append(0);
-    m_Width.append(m_pFontMetric->width(Char));
+    m_Width.append(m_pFontMetric->horizontalAdvance(Char));
     m_LeftBearing.append(m_pFontMetric->leftBearing(Char));
     m_RightBearing.append(m_pFontMetric->leftBearing(Char));
 
     if(Char >= '0' && Char <='9')
     {
-        if(m_pFontMetric->width(Char) > m_MaxX_FixedFont)
+        if(m_pFontMetric->horizontalAdvance(Char) > m_MaxX_FixedFont)
         {
-            m_MaxX_FixedFont = m_pFontMetric->width(Char);
+            m_MaxX_FixedFont = m_pFontMetric->horizontalAdvance(Char);
         }
     }
 
@@ -557,7 +557,7 @@ void SkinSave::CompressFont(QVector<uint8_t>* pCompxData, char Char)
         pCompxData->replace(OffsetFontHeader + 6,  (m_MaxY[m_TotalCharCount] - m_MinY[m_TotalCharCount]) + 1);
         pCompxData->replace(OffsetFontHeader + 9, CompressionMethod);
     }
-    pCompxData->replace(OffsetFontHeader + 7,  m_pFontMetric->width(Char));     // outside because space need width but has no data
+    pCompxData->replace(OffsetFontHeader + 7,  m_pFontMetric->horizontalAdvance(Char));     // outside because space need width but has no data
 
     m_TotalCharCount++;
 }

@@ -145,12 +145,12 @@ void setWidgetSize(QWidget* pWidget, int Width, int Height)
 
 QPoint SelectScreenAndCenter(QSize Size)
 {
-    QDesktopWidget Desktop;
-    int primary      = Desktop.primaryScreen();
-    int screenWidth  = Desktop.screen(primary)->width();
-    int screenHeight = Desktop.screen(primary)->height();
-    QRect Resolution = Desktop.screenGeometry(primary);
+    QGuiApplication Desktop;
 
+    QScreen* primary = Desktop.primaryScreen();
+    int screenWidth  = primary->geometry().width();
+    int screenHeight = primary->geometry().height();
+    QRect Resolution = primary->geometry();
     Resolution.setX(Resolution.x() + ((screenWidth / 2)  - (Size.width()  / 2)));
     Resolution.setY(Resolution.y() + ((screenHeight / 2) - (Size.height() / 2)));
     return(QPoint(Resolution.x(), Resolution.y()));

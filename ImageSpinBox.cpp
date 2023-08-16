@@ -19,7 +19,7 @@
 */
 
 #include "ImageSpinBox.h"
-#include <QRegExp>
+#include <QtCore5Compat/QRegExp>
 
 ImageSpinBox::ImageSpinBox(QWidget*  parent) : QSpinBox(parent)
 {

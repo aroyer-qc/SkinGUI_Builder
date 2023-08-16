@@ -452,7 +452,7 @@ void MainWindow::LoadFont(int row)
 
                 for(uint8_t c = '0'; c <= '9'; c++)
                 {
-                    thisSizeChar = FontMetric.width(c);
+                    thisSizeChar = FontMetric.horizontalAdvance(QChar(c));              // TODO This is modded for QT 6.5.. might not work as intended
                     if(thisSizeChar > MaxSizeChar)
                     {
                         MaxSizeChar = thisSizeChar;
