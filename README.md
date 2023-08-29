@@ -1,5 +1,6 @@
 # Deprecated !! use this instead
 
+[https://github.com/aroyer-qc/GUI_Builder](https://github.com/aroyer-qc/GUI_Builder)
 
 ![alt text](https://github.com/aroyer-qc/SkinGUI_Builder/blob/master/Ressource/Digini.png)
 
