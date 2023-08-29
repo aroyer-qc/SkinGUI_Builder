@@ -1,3 +1,6 @@
+# Deprecated !! use this instead
+
+
 ![alt text](https://github.com/aroyer-qc/SkinGUI_Builder/blob/master/Ressource/Digini.png)
 
 # SkinGUI_Builder for Digini
